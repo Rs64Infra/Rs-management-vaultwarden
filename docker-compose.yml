@@ -5,21 +5,32 @@ services:
     image: vaultwarden/server:latest
     container_name: vaultwarden
     restart: unless-stopped
-    environment:
-      WEBSOCKET_ENABLED: "true"  # Enable WebSocket notifications.
     volumes:
       - ./vw-data:/data
     ports:
-      - 80:80
+      - 8080:80
 
   cloudflared:
       image: cloudflare/cloudflared:latest #update the verion where necessary
       container_name: cloudflared
       restart: unless-stopped
-      command: tunnel --no-autoupdate run --token eyJhIjoiOGY3NjY5NDliYzVjOTJjMjQ3ZjM3MTkxNDMyZmM5MGYiLCJ0IjoiYzQzYTQ2ZWYtZDE2Ni00YjUzLTliMTgtM2EwZGMzNDg3N2MyIiwicyI6IllUY3dNbVZqTm1VdFpHWmtaaTAwWWpCaExXRmpaak10TW1VeU1URTROREEwWVROaiJ9
+      command: tunnel --no-autoupdate run --token eyJhIjoiOGY3NjY5NDliYzVjOTJjMjQ3ZjM3MTkxNDMyZmM5MGYiLCJ0IjoiNjQyNzY3ZGMtNWNiZC00MjdlLWExNTktYzBiOTAxM2NhZTkzIiwicyI6IlltRTJNMlF5WmpRdE16ZzBNaTAwTjJZNExXSXhNamd0TXpNek16TTJaakJsTkdWbCJ9
+
+
       volumes:
         - ./cloudflared-data:/data
 
+networks:
+  default:
+    name: vaultwarden
+
+
 #--hostname rsvaultwarden.rs64.net --url http://127.0.0.1:80
 
-#docker run cloudflare/cloudflared:2022.8.2 tunnel --no-autoupdate run --token eyJhIjoiOGY3NjY5NDliYzVjOTJjMjQ3ZjM3MTkxNDMyZmM5MGYiLCJ0IjoiYzQzYTQ2ZWYtZDE2Ni00YjUzLTliMTgtM2EwZGMzNDg3N2MyIiwicyI6IllUY3dNbVZqTm1VdFpHWmtaaTAwWWpCaExXRmpaak10TW1VeU1URTROREEwWVROaiJ9
+#docker run cloudflare/cloudflared:2022.8.2 tunnel --no-autoupdate run --token eyJhIjoiOGY3NjY5NDliYzVjOTJjMjQ3ZjM3MTkxNDMyZmM5MGYiLCJ0IjoiNjQyNzY3ZGMtNWNiZC00MjdlLWExNTktYzBiOTAxM2NhZTkzIiwicyI6IlltRTJNMlF5WmpRdE16ZzBNaTAwTjJZNExXSXhNamd0TXpNek16TTJaakJsTkdWbCJ9
+
+
+#--hostname test.きーちゃんどめいん --url http://127.0.0.1:8080
+
+
+
