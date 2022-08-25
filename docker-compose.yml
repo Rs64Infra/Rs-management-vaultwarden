@@ -9,14 +9,14 @@ services:
       - ./vw-data:/data
     ports:
       - 8080:80
+    environment:
+      ADMIN_TOKEN: YPf7thKgybtPZ9IEn9LC8nt5TK8miyroJZv32xx6+cJePHxpm0PPbw3aRVQfx4sg
 
   cloudflared:
       image: cloudflare/cloudflared:latest #update the verion where necessary
       container_name: cloudflared
       restart: unless-stopped
       command: tunnel --no-autoupdate run --token eyJhIjoiOGY3NjY5NDliYzVjOTJjMjQ3ZjM3MTkxNDMyZmM5MGYiLCJ0IjoiNjQyNzY3ZGMtNWNiZC00MjdlLWExNTktYzBiOTAxM2NhZTkzIiwicyI6IlltRTJNMlF5WmpRdE16ZzBNaTAwTjJZNExXSXhNamd0TXpNek16TTJaakJsTkdWbCJ9
-
-
       volumes:
         - ./cloudflared-data:/data
 
