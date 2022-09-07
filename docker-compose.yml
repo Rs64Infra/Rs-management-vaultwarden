@@ -2,7 +2,7 @@ version: '3'
 
 services:
   vaultwarden:
-    image: vaultwarden/server:latest
+    image: vaultwarden/server:1.25.1
     container_name: vaultwarden
     restart: unless-stopped
     volumes:
@@ -12,7 +12,7 @@ services:
     environment:
       ADMIN_TOKEN: ${ADMIN_TOKEN}
   cloudflared:
-      image: cloudflare/cloudflared:latest 
+      image: cloudflare/cloudflared:2022.8.2-amd64
       container_name: cloudflared
       restart: unless-stopped
       command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
@@ -22,4 +22,4 @@ services:
 networks:
   default:
     name: vaultwarden
-
+#networkの意味は私よく理解できていない....
