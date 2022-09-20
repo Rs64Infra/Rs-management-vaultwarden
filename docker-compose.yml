@@ -13,13 +13,10 @@ services:
       ADMIN_TOKEN: ${ADMIN_TOKEN}
   cloudflared:
       image: cloudflare/cloudflared:2022.9.0-amd64
-      container_name: cloudflared
+      container_name: cloudflared-use-vaultwarden
       restart: unless-stopped
       command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
       volumes:
         - ./cloudflared-data:/data
 
-networks:
-  default:
-    name: vaultwarden
-#networkの意味は私よく理解できていない....
+
