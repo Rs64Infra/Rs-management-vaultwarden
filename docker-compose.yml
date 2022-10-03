@@ -12,7 +12,7 @@ services:
     environment:
       ADMIN_TOKEN: ${ADMIN_TOKEN}
   cloudflared:
-      image: cloudflare/cloudflared:2022.9.1-amd64
+      image: cloudflare/cloudflared:2022.10.0-amd64
       container_name: cloudflared-use-vaultwarden
       restart: unless-stopped
       command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
