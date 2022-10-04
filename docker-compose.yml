@@ -11,6 +11,8 @@ services:
       - 8080:80
     environment:
       ADMIN_TOKEN: ${ADMIN_TOKEN}
+      SIGNUPS_ALLOWED: false
+
   cloudflared:
       image: cloudflare/cloudflared:2022.9.0-amd64
       container_name: cloudflared-use-vaultwarden
