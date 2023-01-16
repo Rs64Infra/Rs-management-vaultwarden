@@ -14,7 +14,7 @@ services:
       SIGNUPS_ALLOWED: false
 
   cloudflared:
-      image: cloudflare/cloudflared:2022.12.1-amd64
+      image: cloudflare/cloudflared:2023.1.0-amd64
       container_name: cloudflared-use-vaultwarden
       restart: unless-stopped
       command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
