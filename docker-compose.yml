@@ -12,6 +12,8 @@ services:
     environment:
       ADMIN_TOKEN: ${ADMIN_TOKEN}
       SIGNUPS_ALLOWED: false
+      YUBICO_CLIENT_ID: ${YUBICO_CLIENT_ID}
+      YUBICO_SECRET_KEY: ${YUBICO_SECRET_KEY}
 
   cloudflared:
       image: cloudflare/cloudflared:2023.10.0-amd64
