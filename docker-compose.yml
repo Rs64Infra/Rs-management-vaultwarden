@@ -16,7 +16,7 @@ services:
       YUBICO_SECRET_KEY: ${YUBICO_SECRET_KEY}
 
   cloudflared:
-      image: cloudflare/cloudflared:2024.4.0-amd64
+      image: cloudflare/cloudflared:2024.4.1-amd64
       container_name: cloudflared-use-vaultwarden
       restart: unless-stopped
       command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
